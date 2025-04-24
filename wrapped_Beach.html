@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=414, height=896, initial-scale=1.0">
+  <title>Catch Up App</title>
+  <link rel="stylesheet" href="wrappedStyle.css">
+  <!-- <script src="script.js"></script> -->
+</head>
+<body>
+
+  <div class="phone-screen">
+
+    <div class="header-container">
+      <div class="header">
+        <button id = "backButton">
+          <img src="icons/back.png" alt = "Back icon" class="header-icon">
+        </button>
+
+        <button>
+          <img src="icons/title.png" alt = "Title" class="header-title">
+        </button>
+
+        <button>
+          <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
+        </button>
+      </div>
+    </div>
+
+    <div class="body-container">
+      <div class="body-date-time">
+        <p>Your missed posts!</p>
+
+        <div class="date-picker-container">
+          <div class="date-group">
+            <label>From</label>
+            <span class="date-display" id="selectedDateFrom">Select a date</span>
+            <input type="date" id="dateInputFrom">
+          </div>
+        
+          <div class="date-group">
+            <label>To</label>
+            <span class="date-display" id="selectedDateTo">Select a date</span>
+            <input type="date" id="dateInputTo">
+          </div>
+          
+          <button id="confirmButton">
+            <img src="icons/confirm.png" alt="Confirm icon">
+          </button>
+        </div>
+      </div>
+
+      <div class="body-post">
+        <div class="post-header">
+          <img class="avatar" src="icons/male_black.png" alt="Avatar">
+          <span class="username">@Psikoe</span>
+          <img class="platform" src="icons/instagram.png" alt="Instagram">
+        </div>
+
+        <div class="post-image">
+          <button id = "prevPostButton">
+            <img src="icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
+          </button>
+
+          <img src="images/beach.png" alt="baby" class = "post-image-img"/>
+
+          <button>
+            <img src="icons/post-next.png" alt = "Previous icon" class = "nav-icon">
+          </button>
+        </div>
+
+        <div class = "post-footer">
+          <div class = "post-icon">
+            <img src="icons/heart.png" alt = "Heart icon" class = "footer-icon">
+            <img src="icons/comment.png" alt = "Comment icon" class = "footer-icon">
+          </div>
+          <div class="timestamp">
+            <p>March 27th, 2025</p>
+            <p>18:43:59</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer-nav">
+        <button>
+          <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+          Message
+        </button>
+        <button>
+          <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+          Social Media
+        </button>
+        <button>
+          <img src="icons/search.png" alt="Search icon" class="icon"><br>
+          Search
+        </button>
+        <button>
+          <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+          Profile
+        </button>
+      </div>
+
+    </div>
+    <!-- Header -->
+    <!-- <div class="header">
+      <button class="back-btn">←</button>
+      <h1>CATCH UP</h1>
+      <button class="menu-btn">☰</button>
+    </div> -->
+
+    <!-- Date Range -->
+    <!-- <div class="date-range">
+      <p>Your missed posts</p>
+      <div class="range">
+        <span>FROM</span>
+        <button class="date-btn">WED 03/26/25</button>
+        <span>TO</span>
+        <button class="date-btn">WED 04/02/25</button>
+        <span class="edit-icon">✎</span>
+      </div>
+    </div> -->
+
+    <!-- Post -->
+    <!-- <div class="post-card">
+      <div class="post-header">
+        <img class="avatar" src="avatar.png" alt="avatar">
+        <span class="username">@veratar</span>
+        <img class="platform" src="facebook-icon.png" alt="Facebook">
+      </div>
+
+      <div class="post-image">
+        <button class="nav-btn">❮</button>
+        <img src="baby.png" alt="baby" />
+        <button class="nav-btn">❯</button>
+      </div>
+
+      <div class="post-footer">
+        <div class="icons">
+          <span>💙</span>
+          <span>💬</span>
+        </div>
+        <div class="timestamp">
+          <p>March 26th, 2025</p>
+          <p>17:18:42</p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Footer Menu -->
+    <!-- <div class="footer-nav">
+      <button>
+        <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+        Message
+      </button>
+      <button>
+        <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+        Social Media
+      </button>
+      <button>
+        <img src="icons/search.png" alt="Search icon" class="icon"><br>
+        Search
+      </button>
+      <button>
+        <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+        Profile
+      </button>
+    </div> -->
+
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("prevPostButton").addEventListener("click", () => {
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+        window.location.href = "wrapped_Baby.html";
+    });
+  </script>
+</body>
+</html>

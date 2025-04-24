@@ -30,15 +30,17 @@ body {
   height: 100px;
   background-color: #F2F4F7;
   /* background-color: black; */
+  /* border-bottom: 3px solid #1d4e89; */
 }
 
 .body-container{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 375px;
   height: 612px;
-  /* background-color: black; */
+  background-color: #F2F4F7;
 }
 
 .body-date-time{
@@ -47,6 +49,8 @@ body {
   align-items: center;
   width: 375px;
   height: 100px;
+  flex-direction: column;
+  /* background-color: black; */
 }
 
 .body-post{
@@ -111,13 +115,134 @@ body {
 
 /* === Start Body === */
 
+.body-date-time p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d4e89;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.date-time-container {
+  width: 375;
+  height: 80px;
+}
+
+/* .date-picker-container {
+  position: relative;
+  display: inline-block;
+} */
+
+/* #dateInput {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.date-display {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #1d4e89;
+  cursor: pointer;
+} */
+
+.date-picker-container {
+  display: flex;
+  flex-direction: row; /* put them in one line */
+  gap: 5px;
+  justify-content: center;
+  /* align-items: flex-start; */
+  align-items: center;
+  font-family: monospace;
+  color: #1d4e89;
+}
+
+.date-picker-container img{
+  width: 20px;
+  height: 20px;
+}
+
+.date-picker-container button{
+  display: flex;
+  align-items: center;
+  /* color: none; */
+  background-color: #F2F4F7;
+  border: none;
+  cursor: pointer;
+}
+
+.date-picker-container button:hover{
+  background-color: #dce3eb;
+  border-radius: 30px;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 5px;
+  width: 150px;
+}
+
+.date-group label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.date-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 7px;
+  background-color: #f0f0f0;
+  /* background-color: black; */
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 12px;
+  width: 100px;
+}
+
+input[type="date"] {
+  position: absolute;
+  /* top: 36px; */
+  /* top: 100%; */
+  /* left: 0; */
+  /* left: 5%; */
+  /* right: 100%; */
+  opacity: 0;
+  width: 100%;
+  /* width: 40px; */
+  height: 40px;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+
 .post-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  width: 375px;
+  /* margin-bottom: 5px; */
+  width: 100%;
   height: 100px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .avatar {
@@ -128,8 +253,9 @@ body {
 .username {
   flex-grow: 1;
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: monospace;
+  /* font-weight: bold; */
   color: #1d4e89;
 }
 
@@ -144,7 +270,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 375px;
-  height: 300px;
+  height: 350px;
 }
 
 .post-image-img {
@@ -167,7 +293,9 @@ body {
 }
 
 .post-image button:hover {
-  background-color: #00b2ca;   
+  /* background-color: #00b2ca;    */
+  background-color: #dce3eb;
+  border: 1px solid #1d4e89;
   color: #000;                 
   border-radius: 20px;        
   transition: 0.2s ease;      
@@ -185,6 +313,41 @@ body {
 .nav-icon {
   width: 30px;
   height: 30px;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  width: 100%;
+  padding: 10px 12px;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+.post-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.timestamp {
+  text-align: right;
+  font-family: monospace;
+  font-size: 14px;
+  color: #1d4e89;
+  justify-content: center;
+  line-height: 1.2;
+  height: 100%; 
+}
+
+.timestamp p {
+  margin: 0;        
+  line-height: 1.2; 
 }
 
 /* ___ End Body ___ */
@@ -212,23 +375,13 @@ body {
 .edit-icon {
   cursor: pointer;
 }
-  
-.post-card {
-  flex-grow: 1;
-  padding: 10px;
-} */
+  */
 
 
   
 
   
 /* === Start Footer === */
-
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
   
 .footer-nav {
   display: flex;

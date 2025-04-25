@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (signOutBtn) {
     signOutBtn.addEventListener('click', () => {
       if (confirm('Are you sure you want to sign out?')) {
-        window.location.href = 'wrapped_Baby.html';
+        window.location.href = '/html/social_media/wrapped_Baby.html';
       }
     });
   }

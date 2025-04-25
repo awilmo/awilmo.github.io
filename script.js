@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!dateInputFrom.value || !dateInputTo.value) {
       alert("Please select both dates.");
     } else if (fromDate > toDate) {
-      alert("⚠️ 'From' date must be before the 'To' date. Please reenter.");
+      alert("⚠️ 'From' date must be before the 'To' date. Please re-enter.");
     } else {
       alert("✅ Date range applied successfully!");
     }

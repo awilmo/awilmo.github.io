@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   dateInputFrom.addEventListener("change", () => {
     selectedDateFrom.textContent = formatDate(dateInputFrom.value);
+    localStorage.setItem("fromDate", dateInputFrom.value);
   });
 
   dateInputTo.addEventListener("change", () => {
     selectedDateTo.textContent = formatDate(dateInputTo.value);
+    localStorage.setItem("toDate", dateInputTo.value);
   });
 
   function formatDate(value) {

@@ -97,7 +97,7 @@
             <img src="/icons/search.png" alt="Search icon" class="icon"><br>
             Search
           </button>
-          <button class = "footer-nav-button">
+          <button class = "footer-nav-button" id = "profileNavigation">
             <img src="/icons/profile.png" alt="Profile icon" class="icon"><br>
             Profile
           </button>
@@ -116,6 +116,10 @@
         localStorage.setItem("toDate", toDate);
 
         window.location.href = "/html/social_media/wrapped_Beach.html";
+      });
+
+      document.getElementById("profileNavigation").addEventListener("click", () => {
+        window.location.href = "/html/profiles/profile_Self.html";
       });
     </script>
   </body>

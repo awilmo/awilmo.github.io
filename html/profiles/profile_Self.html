@@ -62,26 +62,38 @@
 
     <div class="footer-container">
       <div class="footer-nav">
-        <button>
-          <img src="/icons/message.png" alt="Message"><br>
+        <button class = "footer-nav-button" id = "socialMediaNavigation">
+          <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+           Social Media
+        </button>
+        <button class = "footer-nav-button">
+          <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
           Message
         </button>
-        <button>
-          <img src="/icons/socialmedia.png" alt="Social"><br>
-          Social Media
-        </button>
-        <button>
-          <img src="/icons/search.png" alt="Search"><br>
+        <button class = "footer-nav-button">
+          <img src="/icons/search.png" alt="Search icon" class="icon"><br>
           Search
         </button>
-        <button class="active">
-          <img src="/icons/profile.png" alt="Profile"><br>
+        <button class = "footer-nav-button-active" id = "profileNavigation">
+          <img src="/icons/profile.png" alt="Profile icon" class="icon"><br>
           Profile
         </button>
       </div>
+
     </div>
 
   </div>
   <script src="/script.js"></script>
+  <script>
+    document.getElementById("socialMediaNavigation").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
+  </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Catch Up App</title>
     <link rel="stylesheet" href="wrappedStyle.css">
     <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="addAccounts.css">
     <!-- <script src="script.js"></script> -->
   </head>
   <body>
@@ -36,68 +37,43 @@
         <button class="close-btn" id="close-btn">×</button>
         <nav>
           <ul>
-            <li><a href="#">Settings</a></li>
+            <li>Settings</li>
             <li><a href="CatchUpList.html">Catch Up List</a></li>
-            <li><a href="#">Help</a></li>
+            <li>Help</li>
           </ul>
         </nav>
       </aside>
 
-      <div class="body-container">
-        <div class="body-date-time">
-          <p>Your missed posts!</p>
+    <!--ADD ACCOUNT FORM-->
+    <div class="body-container add-account">
+      <div class="page-title">
+        Add a Social<br />Account to catch up
+      </div>
 
-          <div class="date-picker-container">
-            <div class="date-group">
-              <label>From</label>
-              <span class="date-display" id="selectedDateFrom">Select a date</span>
-              <input type="date" id="dateInputFrom">
-            </div>
-          
-            <div class="date-group">
-              <label>To</label>
-              <span class="date-display" id="selectedDateTo">Select a date</span>
-              <input type="date" id="dateInputTo">
-            </div>
-            
-            <button id="confirmButton">
-              <img src="icons/confirm.png" alt="Confirm icon">
-            </button>
-          </div>
-        </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          class="text-input"
+          placeholder="Enter a Username..."
+        />
+      </div>
 
-        <div class="body-post">
-          <div class="post-header">
-            <img class="avatar" src="icons/male_black.png" alt="Avatar">
-            <span class="username">@veratar</span>
-            <img class="platform" src="icons/facebook.png" alt="Facebook">
-          </div>
-
-          <div class="post-image">
-            <button >
-              <img src="icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
-            </button>
-
-            <img src="images/baby.png" alt="baby" class = "post-image-img"/>
-
-            <button id="nextPostButton">
-              <img src="icons/post-next.png" alt = "Next icon" class = "nav-icon">
-            </button>
-          </div>
-
-          <div class = "post-footer">
-            <div class = "post-icon">
-              <img src="icons/heart.png" alt = "Heart icon" class = "footer-icon">
-              <img src="icons/comment.png" alt = "Comment icon" class = "footer-icon">
-            </div>
-            <div class="timestamp">
-              <p>March 26th, 2025</p>
-              <p>17:18:42</p>
-            </div>
-          </div>
-
+      <div class="form-group">
+        <label for="platform">Platform:</label>
+        <div class="select-wrapper">
+          <select id="platform">
+            <option value=""hidden</option>
+            <option value="facebook" data-icon="icons/facebook.png">Facebook</option>
+            <option value="instagram" data-icon="icons/instagram.png">Instagram</option>
+            <option value="tiktok" data-icon="icons/tiktok.png">TikTok</option>
+          </select>
         </div>
       </div>
+
+      <button class="add-btn">ADD</button>
+    </div>
 
       <div class="footer-container">
         <div class="footer-nav">
@@ -211,18 +187,55 @@
 
       document.addEventListener('click', e => {
         if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
-          sidebar.classList.remove('open');
+          closeNav();
         }
       });
 
-      document.getElementById("nextPostButton").addEventListener("click", () => {
-        const fromDate = document.getElementById("dateInputFrom").value;
-        const toDate = document.getElementById("dateInputTo").value;
+      document.addEventListener('DOMContentLoaded', () => {
+        const STORAGE_KEY = 'catchUpAccounts';
+        const addBtn      = document.querySelector('.add-btn');
+        const usernameIn  = document.getElementById('username');
+        const platformIn  = document.getElementById('platform');
 
-        localStorage.setItem("fromDate", fromDate);
-        localStorage.setItem("toDate", toDate);
+        // shows red error message at the top of the form
+        function showError(msg) {
+          let errorDiv = document.getElementById('errorMsg');
+          if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.id = 'errorMsg';
+            errorDiv.style.color = 'red';
+            errorDiv.style.textAlign = 'center';
+            errorDiv.style.margin = '0.5em 0';
+            const container = document.querySelector('.body-container.add-account');
+            container.insertBefore(errorDiv, container.firstChild);
+          }
+          errorDiv.textContent = msg;
+        }
 
-        window.location.href = "wrapped_Beach.html";
+        addBtn.addEventListener('click', () => {
+          const username = usernameIn.value.trim();
+          const platform = platformIn.value;
+          if (!username || !platform) return;
+
+          const accounts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+          // duplicate check (so no duplictates can be created)
+          const duplicate = accounts.some(acc =>
+            acc.username === username && acc.platform === platform
+          );
+          if (duplicate) {
+            showError('Account was already added!');
+            return;
+          }
+
+          const previousError = document.getElementById('errorMsg');
+          if (previousError) previousError.textContent = '';
+
+          // adds account
+          accounts.push({ username, platform });
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
+          window.location.href = 'CatchUpList.html';
+        });
       });
     </script>
   </body>

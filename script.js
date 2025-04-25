@@ -105,6 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
     navStack.push(currentPage);
     localStorage.setItem("navStack", JSON.stringify(navStack));
   }
+
+  const btn = document.getElementById('unfollowBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    if (btn.textContent.trim() === 'Unfollow') {
+      // → Follow
+      btn.textContent = 'Follow';
+      btn.classList.remove('btn-unfollow');
+      btn.classList.add('btn-follow');
+    } else {
+      // → Unfollow
+      btn.textContent = 'Unfollow';
+      btn.classList.remove('btn-follow');
+      btn.classList.add('btn-unfollow');
+    }
+  });
 });
 
 document.getElementById("backButton").addEventListener("click", () => {
@@ -116,5 +133,81 @@ document.getElementById("backButton").addEventListener("click", () => {
     const previousPage = navStack.pop(); // get the one before
     localStorage.setItem("navStack", JSON.stringify(navStack));
     window.location.href = previousPage;
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // —— Self-profile actions ——
+  const editBtn    = document.getElementById('editBtn');
+  const saveBtn    = document.getElementById('saveBtn');
+  const cancelBtn  = document.getElementById('cancelBtn');
+  const signOutBtn = document.getElementById('signOutBtn');
+  const deleteBtn  = document.getElementById('deleteBtn');
+  const bioDiv     = document.querySelector('.bio-text');
+
+  // Guard: only on self‐profile page
+  if (editBtn && bioDiv) {
+    editBtn.addEventListener('click', () => {
+      // swap bio → textarea
+      const textarea = document.createElement('textarea');
+      textarea.className = 'bio-text-edit mono';
+      textarea.value = bioDiv.textContent.trim();
+      textarea.style.height = bioDiv.offsetHeight + 'px';
+      bioDiv.replaceWith(textarea);
+
+      // hide/show buttons
+      editBtn.style.display    = 'none';
+      saveBtn.style.display    = 'block';
+      cancelBtn.style.display  = 'block';
+      if (signOutBtn) signOutBtn.style.display = 'none';
+      if (deleteBtn)  deleteBtn.style.display  = 'none';
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const textarea = document.querySelector('.bio-text-edit');
+      const newBio = textarea.value.trim() || 'N/A';
+      bioDiv.textContent = newBio;
+      textarea.replaceWith(bioDiv);
+
+      // restore button visibility
+      editBtn.style.display    = 'block';
+      saveBtn.style.display    = 'none';
+      cancelBtn.style.display  = 'none';
+      if (signOutBtn) signOutBtn.style.display = 'block';
+      if (deleteBtn)  deleteBtn.style.display  = 'block';
+
+      // TODO: persist newBio via API/localStorage
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      const textarea = document.querySelector('.bio-text-edit');
+      textarea.replaceWith(bioDiv);
+
+      // restore
+      editBtn.style.display    = 'block';
+      saveBtn.style.display    = 'none';
+      cancelBtn.style.display  = 'none';
+      if (signOutBtn) signOutBtn.style.display = 'block';
+      if (deleteBtn)  deleteBtn.style.display  = 'block';
+    });
+  }
+
+  // —— Sign Out ——
+  if (signOutBtn) {
+    signOutBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to sign out?')) {
+        window.location.href = 'wrapped_Baby.html';
+      }
+    });
+  }
+
+  // —— Delete Account ——
+  if (deleteBtn) {
+    deleteBtn.addEventListener('click', () => {
+      if (confirm('This will permanently delete your account. Proceed?')) {
+        alert('Your account has been deleted.');
+        window.location.href = 'wrapped_Baby.html';
+      }
+    });
   }
 });

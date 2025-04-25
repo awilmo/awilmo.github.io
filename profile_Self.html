@@ -45,13 +45,17 @@
 
         <div class="bio-label">Bio Description:</div>
         <div class="bio-text mono">
-          Transitioning to working night shifts, trying to stay caught up
-          with what I miss from my friends through this app!
+          Transitioning to working night shifts, trying to stay caught up with what I miss from my friends through this app!
         </div>
 
-        <button class="btn btn-edit mono">Edit</button>
-        <button class="btn btn-signout mono">Sign Out</button>
-        <button class="btn btn-delete mono">Delete Account</button>
+        <div class="action-buttons-self">
+          <button id="editBtn"     type="button" class="btn btn-edit mono">Edit</button>
+          <button id="saveBtn"     type="button" class="btn btn-signout mono" style="display:none">Save</button>
+          <button id="cancelBtn"   type="button" class="btn btn-delete mono" style="display:none">Cancel</button>
+        </div>
+      
+        <button id="signOutBtn" type="button" class="btn btn-signout mono">Sign Out</button>
+        <button id="deleteBtn"  type="button" class="btn btn-delete mono">Delete Account</button>
       </div>
       </div>
     </div>

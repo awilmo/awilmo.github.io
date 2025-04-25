@@ -110,14 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!btn) return;
 
   btn.addEventListener('click', () => {
-    if (btn.textContent.trim() === 'Unfollow') {
+    if (btn.textContent.trim() === 'Remove') {
       // → Follow
-      btn.textContent = 'Follow';
-      btn.classList.remove('btn-unfollow');
-      btn.classList.add('btn-follow');
+      const confirmRemove = confirm("Do you want to remove this contact?");
+      if (confirmRemove) {
+        // If user clicks OK
+        btn.textContent = 'Add';
+        btn.classList.remove('btn-unfollow');
+        btn.classList.add('btn-follow');
+      }
     } else {
       // → Unfollow
-      btn.textContent = 'Unfollow';
+      btn.textContent = 'Remove';
       btn.classList.remove('btn-follow');
       btn.classList.add('btn-unfollow');
     }

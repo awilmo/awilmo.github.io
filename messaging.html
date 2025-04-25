@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=414, height=896, initial-scale=1.0">
+    <title>Catch Up App</title>
+    <link rel="stylesheet" href="messagingStyle.css">
+</head>
+<body>
+    <div class="phone-screen">
+        <div class="header-container">
+            <div class="header">
+              <button>
+                <img src="icons/back.png" alt = "Back icon" class="header-icon">
+              </button>
+      
+              <button>
+                <img src="icons/title.png" alt = "Title" class="header-title">
+              </button>
+      
+              <button>
+                <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
+              </button>
+            </div>
+        </div>
+        <div class="body-container">
+            <div class="contact-box">
+                <img id="contact1" src="images/contact1.png" alt = "Contact" class="contact">
+                <img id="contact2" src="images/contact2.png" alt = "Contact" class="contact">
+                <img id="contact3" src="images/contact3.png" alt = "Contact" class="contact">
+                <img id="contact4" src="images/contact4.png" alt = "Contact" class="contact">
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-nav">
+                <button>
+                    <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+                    Social Media
+                </button>
+                <button>
+                    <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+                    Message
+                </button>
+                <button>
+                    <img src="icons/search.png" alt="Search icon" class="icon"><br>
+                    Search
+                </button>
+                <button>
+                    <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+                    Profile
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("contact1").onclick = function () {
+            location.href = 'messagingText.html';
+            sessionStorage.setItem('contact', 'Bob');
+        };
+
+        document.getElementById("contact2").onclick = function () {
+            location.href = 'messagingText.html';
+            sessionStorage.setItem('contact', 'Maragaret');
+        };
+
+        document.getElementById("contact3").onclick = function () {
+            location.href = 'messagingText.html';
+            sessionStorage.setItem('contact', 'Philip');
+        };
+
+        document.getElementById("contact4").onclick = function () {
+            location.href = 'messagingText.html';
+            sessionStorage.setItem('contact', 'Greg');
+        };
+    </script>
+</body>

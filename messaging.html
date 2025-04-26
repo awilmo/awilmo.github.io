@@ -12,7 +12,7 @@
                 <img src="icons/back.png" alt = "Back icon" class="header-icon">
               </button>
       
-              <button>
+              <button id = "appTitle">
                 <img src="icons/title.png" alt = "Title" class="header-title">
               </button>
       
@@ -70,7 +70,18 @@
             </div>
         </div>
     </div>
+    <script src="/script.js"></script>
     <script>
+        document.getElementById("appTitle").addEventListener("click", () => {
+            window.location.href = "/html/social_media/wrapped_Baby.html";
+            
+            const fromDate = document.getElementById("dateInputFrom").value;
+            const toDate = document.getElementById("dateInputTo").value;
+
+            localStorage.setItem("fromDate", fromDate);
+            localStorage.setItem("toDate", toDate);
+        });
+
         document.getElementById("socialMediaButton").onclick = function () {
             location.href = 'html/social_media/wrapped_Baby.html';
         };

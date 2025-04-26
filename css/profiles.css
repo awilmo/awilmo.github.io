@@ -32,7 +32,7 @@ body {
   height: 100px;
   background-color: #F2F4F7;
   /* background-color: black; */
-  border-bottom: 3px solid #1d4e89;
+  /* border-bottom: 3px solid #1d4e89; */
   position: relative;  /* necessary for z-index to apply */
   z-index: 10;
 }

@@ -5,21 +5,35 @@
   <meta name="viewport" content="width=375,initial-scale=1.0">
   <title>Profile – Margaret</title>
   <!-- <link rel="stylesheet" href="wrappedStyle.css"> -->
-  <link rel="stylesheet" href="profiles.css">
+  <link rel="stylesheet" href="/css/profiles.css">
 </head>
+<style>
+  .footer-nav-button-active {
+  background: none;
+  border: none;
+  font-size: 9px;
+  color: #1d4e89;
+  cursor: pointer;
+  font-family: monospace;
+  width: 87px;
+
+  /* border: solid 2px #1d4e89; */
+  border-radius: 20px;
+}
+</style>
 <body>
   <div class="phone-screen">
     <div class="header-container">
       <div class="header">
-        <button><img src="icons/back.png" class="header-icon" alt="Back"></button>
-        <button><img src="icons/title.png" class="header-title" alt="Catch Up"></button>
-        <button><img src="icons/menu.png" class="header-icon" alt="Menu"></button>
+        <button><img src="/icons/back.png" class="header-icon" alt="Back"></button>
+        <button><img src="/icons/title.png" class="header-title" alt="Catch Up"></button>
+        <button><img src="/icons/menu.png" class="header-icon" alt="Menu"></button>
       </div>
     </div>
     <div class="body-container">
       <div class = "profile-page">
         <div class="profile-card">
-          <img src="icons/female_blonde.png" class="profile-avatar" alt="Margaret's Avatar">
+          <img src="/icons/female_blonde.png" class="profile-avatar" alt="Margaret's Avatar">
           <h2 class="profile-name">Margaret</h2>
           <p class="profile-info-line"><span>Awake From:</span><span class="mono">22:30 - 14:30</span></p>
           <p class="profile-info-line"><span>E-mail:</span><span class="mono">margaretmolina@gmail.com</span></p>
@@ -29,32 +43,48 @@
           </div>
           <div class="action-buttons">
             <button id="messageBtn"    class="btn btn-edit mono">Message</button>
-            <button id="unfollowBtn"   class="btn btn-unfollow mono">Unfollow</button>
+            <button id="unfollowBtn"   class="btn btn-unfollow mono">Remove</button>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-container">
       <div class="footer-nav">
-        <button>
-          <img src="icons/message.png" alt="Message"><br>
+        <button class = "footer-nav-button" id = "socialMediaNavigation">
+          <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+           Social Media
+        </button>
+        <button class = "footer-nav-button">
+          <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
           Message
         </button>
-        <button>
-          <img src="icons/socialmedia.png" alt="Social"><br>
-          Social Media
-        </button>
-        <button>
-          <img src="icons/search.png" alt="Search"><br>
+        <button class = "footer-nav-button">
+          <img src="/icons/search.png" alt="Search icon" class="icon"><br>
           Search
         </button>
-        <button class="active">
-          <img src="icons/profile.png" alt="Profile"><br>
+        <button class = "footer-nav-button-active" id = "profileNavigation">
+          <img src="/icons/profile.png" alt="Profile icon" class="icon"><br>
           Profile
         </button>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
+  <script>
+    document.getElementById("socialMediaNavigation").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
+  </script>
+  <script>
+    document.getElementById("profileNavigation").addEventListener("click", () => {
+      window.location.href = "/html/profiles/profile_Self.html";
+    });
+  </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   background-color: black;
@@ -176,6 +177,8 @@ input:hover {
 	height: 24px;
 }
 
+
+
 .search-button {
 	border-radius: 50px;
 	height: 80px;
@@ -196,13 +199,15 @@ input:hover {
 }
 
 .search-pfp {
-	padding-left: 20px;
 	height: 60px; 
 	width: 60px;
+	border-radius: 50%;
+ 	background: #00b2ca;
 }
 
 .search-name {
-	height:75px;
+	font-size:25px;
+	font-weight:bold;
 }
 
 .button-name {
@@ -214,10 +219,45 @@ input:hover {
     text-align: left;   
 	display: flex;
 	flex-direction: column;
+	
 }
 
 
+#vertical-text-1 {
+	color: #1d4e89;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+	align-items: start;
+	text-align: left;
+}
 
+#vertical-text-2 {
+	color: #1d4e89;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+	align-items: start;
+	text-align: left;}
+#vertical-text-3 {
+	color: #1d4e89;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+	align-items: start;
+	text-align: left;
+}
+#vertical-text-4 {
+	color: #1d4e89;
+	margin-left: 10px;
+	display:flex;
+	flex-direction: column;
+	align-items: start;
+	text-align: left;
+}
+.mono {
+	font-family: monospace;
+}
 
 .contacts-button {
 	text-decoration: underline;
@@ -392,5 +432,7 @@ input:hover {
   width: 87px;
   /* height: 87px; */
 }
+
+
 
 /* ___ End footer ___ */

@@ -118,10 +118,15 @@ body {
   justify-content: center;
   font-family: monospace;
   border-radius: 20px;
-  font-size: 26px;
   font-weight: bold;
   width: 375px;
   height: 70px;
+}
+
+#search-bar {
+  font-size: 21px;
+  width: 320px;
+  height: 35px;
 }
 
 input {

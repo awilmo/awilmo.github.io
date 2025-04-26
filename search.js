@@ -36,6 +36,10 @@ if (post_search) {
 		window.location.href = 'html/social_media/wrapped_Beach.html';
 	});
 	
+	document.getElementById("c_button").addEventListener("click", () => {
+			window.location.href = 'html/social_media/wrapped_Cat.html';
+		});
+	
 	users = [
 	  { name: "veratar", rowId: "srow1" },
 	  { name: "psikoe", rowId: "srow2" },

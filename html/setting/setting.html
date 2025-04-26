@@ -7,6 +7,7 @@
   <!-- your main styles (header/footer/profile shared styles) -->
   <!-- <link rel="stylesheet" href="/css/profiles.css"> -->
   <link rel="stylesheet" href="/css/settings.css">
+  <link rel="stylesheet" href="/sidebar.css">
 </head>
 <body>
   <div class="phone-screen">
@@ -20,11 +21,41 @@
         <button id = "appTitle">
           <img src="/icons/title.png" alt="Catch Up" class="header-title">
         </button>
-        <button>
-          <img src="/icons/menu.png" alt="Menu" class="header-icon">
+        <button id="menu-btn">
+          <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
         </button>
       </div>
     </div>
+
+    <!--OVERLAY-->
+    <div class="overlay" id="overlay"></div>
+
+    <!--SIDEBAR-->
+    <aside class="sidebar" id="sidebar">
+      <button class="close-btn" id="close-btn">×</button>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <img src="icons/settings.png" class="sidebar-icon" alt="Info">
+              Settings
+            </a>
+          </li>
+          <li>
+            <a href="CatchUpList.html">
+              <img src="icons/list.png" class="sidebar-icon" alt="List">
+              Catch Up List
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="icons/help.png" class="sidebar-icon" alt="Help">
+              Help
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
     <!-- BODY -->
     <div class="body-container">
@@ -111,6 +142,32 @@
 
   <script src="/script.js"></script>
   <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay   = document.getElementById('overlay');
+
+    function openNav() {
+      sidebar.classList.add('open');
+      overlay.classList.add('visible');
+    }
+
+    function closeNav() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('visible');
+    }
+
+    // menuBtn.addEventListener('click', () => sidebar.classList.add('open'));
+    // closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+    menuBtn .addEventListener('click', openNav);
+    closeBtn.addEventListener('click', closeNav);
+    overlay.addEventListener('click', closeNav);
+
+    document.addEventListener('click', e => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeNav();
+      }
+    });
     // Back button
     document.getElementById('backButton').addEventListener('click', () => {
       window.history.back();

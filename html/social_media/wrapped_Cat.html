@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=414, height=896, initial-scale=1.0">
   <title>Catch Up App</title>
   <link rel="stylesheet" href="/css/wrappedStyle.css">
+  <link rel="stylesheet" href="/sidebar.css">
   <!-- <script src="script.js"></script> -->
 </head>
 <body>
@@ -21,11 +22,41 @@
           <img src="/icons/title.png" alt = "Title" class="header-title">
         </button>
 
-        <button>
-          <img src="/icons/menu.png" alt = "Menu icon" class="header-icon">
+        <button id="menu-btn">
+          <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
         </button>
       </div>
     </div>
+
+    <!--OVERLAY-->
+    <div class="overlay" id="overlay"></div>
+
+    <!--SIDEBAR-->
+    <aside class="sidebar" id="sidebar">
+      <button class="close-btn" id="close-btn">×</button>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">
+              <img src="icons/settings.png" class="sidebar-icon" alt="Info">
+              Settings
+            </a>
+          </li>
+          <li>
+            <a href="CatchUpList.html">
+              <img src="icons/list.png" class="sidebar-icon" alt="List">
+              Catch Up List
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="icons/help.png" class="sidebar-icon" alt="Help">
+              Help
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
 
     <div class="body-container">
       <div class="body-date-time">
@@ -108,6 +139,32 @@
   </div>
   <script src="/script.js"></script>
   <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay   = document.getElementById('overlay');
+
+    function openNav() {
+      sidebar.classList.add('open');
+      overlay.classList.add('visible');
+    }
+
+    function closeNav() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('visible');
+    }
+
+    // menuBtn.addEventListener('click', () => sidebar.classList.add('open'));
+    // closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+    menuBtn .addEventListener('click', openNav);
+    closeBtn.addEventListener('click', closeNav);
+    overlay.addEventListener('click', closeNav);
+
+    document.addEventListener('click', e => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeNav();
+      }
+    });
     document.getElementById("nextPostButton").addEventListener("click", () => {
       const fromDate = document.getElementById("dateInputFrom").value;
       const toDate = document.getElementById("dateInputTo").value;

@@ -106,7 +106,7 @@
           <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
            Social Media
         </button>
-        <button class = "footer-nav-button">
+        <button class = "footer-nav-button" id = "messageNavigation">
           <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
           Message
         </button>
@@ -151,6 +151,10 @@
 
         localStorage.setItem("fromDate", fromDate);
         localStorage.setItem("toDate", toDate);
+    });
+
+	document.getElementById("messageNavigation").addEventListener("click", () => {
+        window.location.href = "/messaging.html";
     });
   </script>
 </body>

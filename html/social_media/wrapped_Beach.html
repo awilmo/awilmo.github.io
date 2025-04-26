@@ -89,7 +89,7 @@
           <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
            Social Media
         </button>
-        <button class = "footer-nav-button">
+        <button class = "footer-nav-button" id = "messageNavigation">
           <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
           Message
         </button>
@@ -133,6 +133,10 @@
     document.getElementById("searchNavigation").addEventListener("click", () => {
         window.location.href = "/post-search.html";
     });
+
+    document.getElementById("messageNavigation").addEventListener("click", () => {
+        window.location.href = "/messaging.html";
+      });
   </script>
 </body>
 </html>

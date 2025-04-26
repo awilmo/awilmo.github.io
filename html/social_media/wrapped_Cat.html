@@ -53,16 +53,16 @@
       <div class="body-post">
         <div class="post-header">
           <img class="avatar" src="/icons/male_black.png" alt="Avatar">
-          <span class="username">@psikoe</span>
-          <img class="platform" src="/icons/instagram.png" alt="Instagram">
+          <span class="username">@commonkat</span>
+          <img class="platform" src="/icons/tiktok.png" alt="Tiktok">
         </div>
 
         <div class="post-image">
-          <button id = "prevPostButton">
+          <button id="prevPostButton">
             <img src="/icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
           </button>
 
-          <img src="/images/squirrel.png" alt="baby" class = "post-image-img"/>
+          <img src="/images/cat.png" alt="baby" class = "post-image-img"/>
 
           <button id="nextPostButton">
             <img src="/icons/post-next.png" alt = "Next icon" class = "nav-icon">
@@ -75,8 +75,8 @@
             <img src="/icons/comment.png" alt = "Comment icon" class = "footer-icon">
           </div>
           <div class="timestamp">
-            <p>March 27th, 2025</p>
-            <p>18:43:59</p>
+            <p>March 31st, 2025</p>
+            <p>3:11:08</p>
           </div>
         </div>
 
@@ -108,16 +108,6 @@
   </div>
   <script src="/script.js"></script>
   <script>
-    document.getElementById("prevPostButton").addEventListener("click", () => {
-      const fromDate = document.getElementById("dateInputFrom").value;
-      const toDate = document.getElementById("dateInputTo").value;
-
-      localStorage.setItem("fromDate", fromDate);
-      localStorage.setItem("toDate", toDate);
-
-      window.location.href = "/html/social_media/wrapped_Beach.html";
-    });
-
     document.getElementById("nextPostButton").addEventListener("click", () => {
       const fromDate = document.getElementById("dateInputFrom").value;
       const toDate = document.getElementById("dateInputTo").value;
@@ -125,7 +115,17 @@
       localStorage.setItem("fromDate", fromDate);
       localStorage.setItem("toDate", toDate);
 
-      window.location.href = "/html/social_media/wrapped_Cat.html";
+      window.location.href = "/html/social_media/wrapped_Baby.html";
+    });
+
+    document.getElementById("prevPostButton").addEventListener("click", () => {
+      const fromDate = document.getElementById("dateInputFrom").value;
+      const toDate = document.getElementById("dateInputTo").value;
+
+      localStorage.setItem("fromDate", fromDate);
+      localStorage.setItem("toDate", toDate);
+
+      window.location.href = "/html/social_media/wrapped_Squirrel.html";
     });
 
     document.getElementById("profileNavigation").addEventListener("click", () => {
@@ -133,8 +133,8 @@
     });
 
     document.getElementById("searchNavigation").addEventListener("click", () => {
-        window.location.href = "/search.html";
-      });
+      window.location.href = "/search.html";
+    });
   </script>
 </body>
 </html>

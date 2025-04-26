@@ -58,7 +58,7 @@
           </div>
 
           <div class="post-image">
-            <button >
+            <button id = "prevPostButton">
               <img src="/icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
             </button>
 
@@ -116,6 +116,16 @@
         localStorage.setItem("toDate", toDate);
 
         window.location.href = "/html/social_media/wrapped_Beach.html";
+      });
+
+      document.getElementById("prevPostButton").addEventListener("click", () => {
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+
+        window.location.href = "/html/social_media/wrapped_Cat.html";
       });
 
       document.getElementById("profileNavigation").addEventListener("click", () => {

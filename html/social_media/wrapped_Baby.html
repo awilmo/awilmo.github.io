@@ -93,7 +93,7 @@
             <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
             Message
           </button>
-          <button class = "footer-nav-button">
+          <button class = "footer-nav-button" id = "searchNavigation">
             <img src="/icons/search.png" alt="Search icon" class="icon"><br>
             Search
           </button>
@@ -120,6 +120,10 @@
 
       document.getElementById("profileNavigation").addEventListener("click", () => {
         window.location.href = "/html/profiles/profile_Self.html";
+      });
+
+      document.getElementById("searchNavigation").addEventListener("click", () => {
+        window.location.href = "/search.html";
       });
     </script>
   </body>

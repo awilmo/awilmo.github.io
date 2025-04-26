@@ -112,18 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!btn) return;
 
   btn.addEventListener('click', () => {
-    if (btn.textContent.trim() === 'Remove') {
+    if (btn.textContent.trim() === 'Unfollow') {
       // → Follow
-      const confirmRemove = confirm("Do you want to remove this contact?");
-      if (confirmRemove) {
-        // If user clicks OK
-        btn.textContent = 'Add';
-        btn.classList.remove('btn-unfollow');
-        btn.classList.add('btn-follow');
-      }
+      btn.textContent = 'Follow';
+      btn.classList.remove('btn-unfollow');
+      btn.classList.add('btn-follow');
     } else {
       // → Unfollow
-      btn.textContent = 'Remove';
+      btn.textContent = 'Unfollow';
       btn.classList.remove('btn-follow');
       btn.classList.add('btn-unfollow');
     }
@@ -202,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (signOutBtn) {
     signOutBtn.addEventListener('click', () => {
       if (confirm('Are you sure you want to sign out?')) {
-        window.location.href = '/html/social_media/wrapped_Baby.html';
+        window.location.href = 'wrapped_Baby.html';
       }
     });
   }

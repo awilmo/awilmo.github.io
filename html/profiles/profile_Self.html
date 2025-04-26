@@ -16,7 +16,7 @@
         <button id="backButton">
           <img src="/icons/back.png" alt="Back" class="header-icon">
         </button>
-        <button>
+        <button id="appTitle">
           <img src="/icons/title.png" alt="Catch Up" class="header-title">
         </button>
         <button>
@@ -86,6 +86,16 @@
   <script src="/script.js"></script>
   <script>
     document.getElementById("socialMediaNavigation").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
+
+    document.getElementById("appTitle").addEventListener("click", () => {
         window.location.href = "/html/social_media/wrapped_Baby.html";
         
         const fromDate = document.getElementById("dateInputFrom").value;

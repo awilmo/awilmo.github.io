@@ -25,8 +25,8 @@
   <div class="phone-screen">
     <div class="header-container">
       <div class="header">
-        <button><img src="/icons/back.png" class="header-icon" alt="Back"></button>
-        <button><img src="/icons/title.png" class="header-title" alt="Catch Up"></button>
+        <button id = "backButton"><img src="/icons/back.png" class="header-icon" alt="Back"></button>
+        <button id = "appTitle"><img src="/icons/title.png" class="header-title" alt="Catch Up"></button>
         <button><img src="/icons/menu.png" class="header-icon" alt="Menu"></button>
       </div>
     </div>
@@ -74,6 +74,16 @@
   <script src="/script.js"></script>
   <script>
     document.getElementById("socialMediaNavigation").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
+
+    document.getElementById("appTitle").addEventListener("click", () => {
         window.location.href = "/html/social_media/wrapped_Baby.html";
         
         const fromDate = document.getElementById("dateInputFrom").value;

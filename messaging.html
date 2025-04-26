@@ -41,6 +41,9 @@
                 </div>
             </div>
         </div>
+        <div id="undoDiv">
+            <button id="undoButton">Undo</button>
+        </div>
         <div id="buttons">
             <button id="deleteButton">Delete</button>
             <img id="trash" src="icons/trash.png">
@@ -123,6 +126,7 @@
                 document.getElementById("cancelButton").style = "display: none";
                 document.getElementById("deleteButton").innerHTML = "Delete";
                 document.getElementById("trash").style = "cursor:pointer";
+                document.getElementById("undoButton").style = "display: block";
             } else {
                 document.getElementById("deleteButton").innerHTML = "Are you sure?";
                 sure = true;
@@ -145,6 +149,25 @@
             document.getElementById("cancelButton").style = "display: none";
             document.getElementById("deleteButton").innerHTML = "Delete";
             document.getElementById("trash").style = "cursor:pointer";
+        }
+
+        document.getElementById("undoButton").onclick = function () {
+            checkboxesOn = false;
+            sure = false;
+            var contacts = document.getElementsByClassName("contactContainer");
+            var elements = document.getElementsByClassName("deleteBox");
+            for (var i = 0; i < contacts.length; i++) {
+                if (elements.item(i).checked) {
+                    elements.item(i).checked = false;
+                }
+                elements.item(i).style = "display: none";
+                contacts.item(i).style = "display: flex";
+            }
+            document.getElementById("deleteButton").style = "display: none";
+            document.getElementById("cancelButton").style = "display: none";
+            document.getElementById("deleteButton").innerHTML = "Delete";
+            document.getElementById("trash").style = "cursor:pointer";
+            document.getElementById("undoButton").style = "display: none";
         }
     </script>
 </body>

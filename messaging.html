@@ -23,21 +23,53 @@
         </div>
         <div class="body-container">
             <div class="contact-box">
-                <div class="contactContainer">
+                <div class = "search-row" id="srow1">
                     <input class="deleteBox" type="checkbox" style="display: none;"> 
-                    <img id="contact1" src="images/contact1.png" alt = "Contact" class="contact">
+                    <button class="search-button" id="b_button">
+                        <div>
+                            <img class="search-pfp" src="icons/male_blonde.png">
+                            <div id="vertical-text-1">
+                                <span class="search-name">Bob</span>
+                                Awake From<br><span class="mono">23:00-15:00</span>
+                            </div>
+                        </div>
+                    </button>
+                </div> 
+                <div class = "search-row" id="srow2">
+                    <input class="deleteBox" type="checkbox" style="display: none;"> 
+                    <button class="search-button" id="m_button">
+                        <div>
+                            <img class="search-pfp" src="icons/female_blonde.png">
+                            <div id="vertical-text-2">
+                                <span class="search-name">Margaret</span>
+                                Awake From<br><span class="mono">22:30-14:30</span>
+                            </div>
+                        </div>
+                    </button>
                 </div>
-                <div class="contactContainer">
+                <div class = "search-row" id="srow3">
                     <input class="deleteBox" type="checkbox" style="display: none;"> 
-                    <img id="contact2" src="images/contact2.png" alt = "Contact" class="contact">
+                    <button class="search-button" id="ph_button">
+                        <div>
+                            <img class="search-pfp" src="icons/male_black.png">
+                            <div id="vertical-text-3">
+                                <span class="search-name">Phillip</span>
+                                Awake From<br><span class="mono">20:00-12:00</span>
+                            </div>
+                        </div>
+                    </button>
                 </div>
-                <div class="contactContainer">
+                <div class = "search-row" id="srow4">
                     <input class="deleteBox" type="checkbox" style="display: none;"> 
-                    <img id="contact3" src="images/contact3.png" alt = "Contact" class="contact">
-                </div>
-                <div class="contactContainer">
-                    <input class="deleteBox" type="checkbox" style="display: none;"> 
-                    <img id="contact4" src="images/contact4.png" alt = "Contact" class="contact">
+                    <button class="search-button" id="g_button">
+                        <div>
+                            <img class="search-pfp" src="icons/male_black.png">
+                            <div id="vertical-text-4">
+                                <span class="search-name">Greg</span>
+                                Awake From<br><span class="mono">6:00-22:00</span>
+                            </div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -87,22 +119,22 @@
             location.href = 'html/profiles/profile_Self.html';
         };
 
-        document.getElementById("contact1").onclick = function () {
+        document.getElementById("b_button").onclick = function () {
             location.href = 'messagingText.html';
             sessionStorage.setItem('contact', 'Bob');
         };
 
-        document.getElementById("contact2").onclick = function () {
+        document.getElementById("m_button").onclick = function () {
             location.href = 'messagingText.html';
-            sessionStorage.setItem('contact', 'Maragaret');
+            sessionStorage.setItem('contact', 'Margaret');
         };
 
-        document.getElementById("contact3").onclick = function () {
+        document.getElementById("ph_button").onclick = function () {
             location.href = 'messagingText.html';
             sessionStorage.setItem('contact', 'Philip');
         };
 
-        document.getElementById("contact4").onclick = function () {
+        document.getElementById("g_button").onclick = function () {
             location.href = 'messagingText.html';
             sessionStorage.setItem('contact', 'Greg');
         };
@@ -129,7 +161,7 @@
             if (sure) {
                 checkboxesOn = false;
                 sure = false;
-                var contacts = document.getElementsByClassName("contactContainer");
+                var contacts = document.getElementsByClassName("search-row");
                 var elements = document.getElementsByClassName("deleteBox");
                 for (var i = 0; i < contacts.length; i++) {
                     if (elements.item(i).checked) {
@@ -153,7 +185,7 @@
         document.getElementById("cancelButton").onclick = function () {
             checkboxesOn = false;
             sure = false;
-            var contacts = document.getElementsByClassName("contactContainer");
+            var contacts = document.getElementsByClassName("search-row");
             var elements = document.getElementsByClassName("deleteBox");
             for (var i = 0; i < contacts.length; i++) {
                 if (elements.item(i).checked) {
@@ -170,7 +202,7 @@
         document.getElementById("undoButton").onclick = function () {
             checkboxesOn = false;
             sure = false;
-            var contacts = document.getElementsByClassName("contactContainer");
+            var contacts = document.getElementsByClassName("search-row");
             var elements = document.getElementsByClassName("deleteBox");
             for (var i = 0; i < contacts.length; i++) {
                 if (elements.item(i).checked) {

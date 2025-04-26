@@ -1,0 +1,87 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=414, height=896, initial-scale=1.0">
+    <title>Catch Up App</title>
+    <link rel="stylesheet" href="messagingTextStyle.css">
+</head>
+<body>
+    <div class="phone-screen">
+        <div class="header-container">
+            <div class="header">
+              <button id="back">
+                <img src="icons/back.png" alt = "Back icon" class="header-icon">
+              </button>
+      
+              <button>
+                <img src="icons/title.png" alt = "Title" class="header-title">
+              </button>
+      
+              <button>
+                <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
+              </button>
+            </div>
+        </div>
+        <div class="body-container">
+            <div id="nametag">
+
+            </div>
+            <div id="messagesContainer" class="messagesContainer">
+                <div class="fromText">Hi</div>
+                <div class="fromText">How are you doing today? Well I hope</div>
+                <div class="toText">just fine</div>
+                <div class="fromText">OK Good!</div>
+            </div>
+            <div id="temp" class="textBox">
+                <textarea type="text" id="textInput"></textarea>
+            </div>
+        </div>
+        <div class="footer-container">
+            <div class="footer-nav">
+                <button>
+                    <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+                    Social Media
+                </button>
+                <button>
+                    <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+                    Message
+                </button>
+                <button>
+                    <img src="icons/search.png" alt="Search icon" class="icon"><br>
+                    Search
+                </button>
+                <button>
+                    <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+                    Profile
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("back").onclick = function () {
+            location.href = 'messaging.html';
+        };
+
+        var name = sessionStorage.getItem('contact');
+        document.getElementById("nametag").innerText=name;
+
+        document.getElementById("temp").addEventListener("keydown", (event) => {
+            if (event.key == "Enter") {
+                var text = document.getElementById("textInput").value;
+                document.getElementById("textInput").value = "";
+                if (text == "" || text == "\n") {
+                    return;
+                }
+                var div = document.createElement("div");
+                div.innerText = text;
+                div.className = "toText";
+                document.getElementById("messagesContainer").appendChild(div);
+            }
+        });
+
+        document.getElementById("temp").addEventListener("keyup", (event) => {
+            if (event.key == "Enter") {
+                document.getElementById("textInput").value = "";
+            }
+        });
+    </script>
+</body>

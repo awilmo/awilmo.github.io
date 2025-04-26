@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=414, height=896, initial-scale=1.0">
     <title>Catch Up App</title>
-    <link rel="stylesheet" href="wrappedStyle.css">
+    <link rel="stylesheet" href="/css/wrappedStyle.css">
     <!-- <script src="script.js"></script> -->
   </head>
   <body>
@@ -14,15 +14,15 @@
       <div class="header-container">
         <div class="header">
           <button id = "backButton">
-            <img src="icons/back.png" alt = "Back icon" class="header-icon">
+            <img src="/icons/back.png" alt = "Back icon" class="header-icon">
           </button>
 
           <button>
-            <img src="icons/title.png" alt = "Title" class="header-title">
+            <img src="/icons/title.png" alt = "Title" class="header-title">
           </button>
 
           <button>
-            <img src="icons/menu.png" alt = "Menu icon" class="header-icon">
+            <img src="/icons/menu.png" alt = "Menu icon" class="header-icon">
           </button>
         </div>
       </div>
@@ -45,34 +45,34 @@
             </div>
             
             <button id="confirmButton">
-              <img src="icons/confirm.png" alt="Confirm icon">
+              <img src="/icons/confirm.png" alt="Confirm icon">
             </button>
           </div>
         </div>
 
         <div class="body-post">
           <div class="post-header">
-            <img class="avatar" src="icons/male_black.png" alt="Avatar">
+            <img class="avatar" src="/icons/male_black.png" alt="Avatar">
             <span class="username">@veratar</span>
-            <img class="platform" src="icons/facebook.png" alt="Facebook">
+            <img class="platform" src="/icons/facebook.png" alt="Facebook">
           </div>
 
           <div class="post-image">
             <button >
-              <img src="icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
+              <img src="/icons/post-previous.png" alt = "Previous icon" class = "nav-icon">
             </button>
 
-            <img src="images/baby.png" alt="baby" class = "post-image-img"/>
+            <img src="/images/baby.png" alt="baby" class = "post-image-img"/>
 
             <button id="nextPostButton">
-              <img src="icons/post-next.png" alt = "Next icon" class = "nav-icon">
+              <img src="/icons/post-next.png" alt = "Next icon" class = "nav-icon">
             </button>
           </div>
 
           <div class = "post-footer">
             <div class = "post-icon">
-              <img src="icons/heart.png" alt = "Heart icon" class = "footer-icon">
-              <img src="icons/comment.png" alt = "Comment icon" class = "footer-icon">
+              <img src="/icons/heart.png" alt = "Heart icon" class = "footer-icon">
+              <img src="/icons/comment.png" alt = "Comment icon" class = "footer-icon">
             </div>
             <div class="timestamp">
               <p>March 26th, 2025</p>
@@ -85,20 +85,20 @@
 
       <div class="footer-container">
         <div class="footer-nav">
-          <button>
-            <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+          <button class = "footer-nav-button-active">
+            <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+             Social Media
+          </button>
+          <button class = "footer-nav-button">
+            <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
             Message
           </button>
-          <button>
-            <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
-            Social Media
-          </button>
-          <button>
-            <img src="icons/search.png" alt="Search icon" class="icon"><br>
+          <button class = "footer-nav-button">
+            <img src="/icons/search.png" alt="Search icon" class="icon"><br>
             Search
           </button>
-          <button>
-            <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+          <button class = "footer-nav-button" id = "profileNavigation">
+            <img src="/icons/profile.png" alt="Profile icon" class="icon"><br>
             Profile
           </button>
         </div>
@@ -106,7 +106,7 @@
       </div>
 
     </div>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
     <script>
       document.getElementById("nextPostButton").addEventListener("click", () => {
         const fromDate = document.getElementById("dateInputFrom").value;
@@ -115,7 +115,11 @@
         localStorage.setItem("fromDate", fromDate);
         localStorage.setItem("toDate", toDate);
 
-        window.location.href = "wrapped_Beach.html";
+        window.location.href = "/html/social_media/wrapped_Beach.html";
+      });
+
+      document.getElementById("profileNavigation").addEventListener("click", () => {
+        window.location.href = "/html/profiles/profile_Self.html";
       });
     </script>
   </body>

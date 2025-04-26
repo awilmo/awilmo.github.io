@@ -11,7 +11,7 @@ body {
   .phone-screen {
     position: relative;
     width: 375px;
-    height: 100vh;
+    height: 812px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -105,6 +105,7 @@ body {
     padding-top: 2.5%;
     border-radius: 20px;
     border:2px black outset;
+    cursor: pointer;
   }
   
   .messagesContainer {

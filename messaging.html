@@ -8,7 +8,7 @@
     <div class="phone-screen">
         <div class="header-container">
             <div class="header">
-              <button>
+              <button  id = "backButton">
                 <img src="icons/back.png" alt = "Back icon" class="header-icon">
               </button>
       
@@ -52,25 +52,41 @@
         <div class="footer-container">
             <div class="footer-nav">
                 <button>
-                    <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+                    <img id="socialMediaButton" src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
                     Social Media
                 </button>
                 <button>
-                    <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+                    <img id="messageButton" src="icons/message.png" alt = "Message icon" class="icon"><br>
                     Message
                 </button>
                 <button>
-                    <img src="icons/search.png" alt="Search icon" class="icon"><br>
+                    <img id="searchButton" src="icons/search.png" alt="Search icon" class="icon"><br>
                     Search
                 </button>
                 <button>
-                    <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+                    <img id="profileButton" src="icons/profile.png" alt="Profile icon" class="icon"><br>
                     Profile
                 </button>
             </div>
         </div>
     </div>
     <script>
+        document.getElementById("socialMediaButton").onclick = function () {
+            location.href = 'html/social_media/wrapped_Baby.html';
+        };
+
+        document.getElementById("messageButton").onclick = function () {
+            location.href = 'messaging.html';
+        };
+
+        document.getElementById("searchButton").onclick = function () {
+            location.href = 'post-search.html';
+        };
+
+        document.getElementById("profileButton").onclick = function () {
+            location.href = 'html/profiles/profile_Self.html';
+        };
+
         document.getElementById("contact1").onclick = function () {
             location.href = 'messagingText.html';
             sessionStorage.setItem('contact', 'Bob');

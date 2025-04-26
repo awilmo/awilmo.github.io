@@ -8,7 +8,7 @@
     <div class="phone-screen">
         <div class="header-container">
             <div class="header">
-              <button id="back">
+              <button  id = "backButton">
                 <img src="icons/back.png" alt = "Back icon" class="header-icon">
               </button>
       
@@ -57,12 +57,24 @@
         </div>
     </div>
     <script>
-        document.getElementById("back").onclick = function () {
+        document.getElementById("backButton").onclick = function () {
             location.href = 'messaging.html';
         };
 
         var name = sessionStorage.getItem('contact');
         document.getElementById("nametag").innerText=name;
+
+        document.getElementById("nametag").onclick = function () {
+            if (document.getElementById("nametag").innerText == "Bob") {
+                location.href = 'html/profiles/profile_Bob.html';
+            } else if (document.getElementById("nametag").innerText == "Margaret") {
+                location.href = 'html/profiles/profile_Margaret.html';
+            } else if (document.getElementById("nametag").innerText == "Philip") {
+                location.href = 'html/profiles/profile_Philip.html';
+            } else if (document.getElementById("nametag").innerText == "Greg") {
+                location.href = 'html/profiles/profile_Greg.html';
+            }
+        };
 
         document.getElementById("temp").addEventListener("keydown", (event) => {
             if (event.key == "Enter") {

@@ -11,7 +11,7 @@ body {
 .phone-screen {
   position: relative;
   width: 375px;
-  height: 100vh;
+  height: 812px;
   background-color: white;
   display: flex;
   flex-direction: column;

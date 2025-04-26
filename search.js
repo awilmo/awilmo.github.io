@@ -38,7 +38,11 @@ if (post_search) {
 	
 	document.getElementById("c_button").addEventListener("click", () => {
 			window.location.href = 'html/social_media/wrapped_Cat.html';
-		});
+	});
+
+	document.getElementById("j_button").addEventListener("click", () => {
+		window.location.href = 'html/social_media/wrapped_Beach.html';
+	});
 	
 	users = [
 	  { name: "veratar", rowId: "srow1" },

@@ -255,13 +255,13 @@ input:hover {
 }
 
 
-.contacts-button {
+#contacts-button {
 	font-weight: bold;
 	font-size: 20px;
 	padding-left: 1vw;
 }
 
-.posts-button {
+#posts-button {
 	text-decoration: underline;
 	color: #f79256;
 	padding-right: 1.25vw;
@@ -269,7 +269,7 @@ input:hover {
 	font-weight: bold;
 }
 
-.contacts-button:hover {
+#contacts-button:hover {
 	color: #f79256;
 	text-decoration: underline;
 	transition: 0.2s ease;    

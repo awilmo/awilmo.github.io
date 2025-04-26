@@ -259,7 +259,7 @@ input:hover {
 	font-family: monospace;
 }
 
-.contacts-button {
+#contacts-button {
 	text-decoration: underline;
 	color: #f79256;
 	font-weight: bold;
@@ -267,13 +267,13 @@ input:hover {
 	padding-left: 1vw;
 }
 
-.posts-button {
+#posts-button {
 	padding-right: 1.25vw;
 	font-size: 20px;
 	font-weight: bold;
 }
 
-.posts-button:hover {
+#posts-button:hover {
 	color: #f79256;
 	text-decoration: underline;
 	transition: 0.2s ease;    

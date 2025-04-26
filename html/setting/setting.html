@@ -17,7 +17,7 @@
         <button id="backButton">
           <img src="/icons/back.png" alt="Back" class="header-icon">
         </button>
-        <button>
+        <button id = "appTitle">
           <img src="/icons/title.png" alt="Catch Up" class="header-title">
         </button>
         <button>
@@ -95,7 +95,7 @@
         <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
         Message
       </button>
-      <button class = "footer-nav-button">
+      <button class = "footer-nav-button" id = "searchNavigation">
         <img src="/icons/search.png" alt="Search icon" class="icon"><br>
         Search
       </button>
@@ -142,10 +142,24 @@
         localStorage.setItem("fromDate", fromDate);
         localStorage.setItem("toDate", toDate);
     });
+
+    document.getElementById("appTitle").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
   </script>
   <script>
     document.getElementById("profileNavigation").addEventListener("click", () => {
       window.location.href = "/html/profiles/profile_Self.html";
+    });
+
+    document.getElementById("searchNavigation").addEventListener("click", () => {
+        window.location.href = "/post-search.html";
     });
   </script>
 </body>

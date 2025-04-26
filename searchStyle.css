@@ -397,7 +397,7 @@ input:hover {
   
 /* === Start Footer === */
 
-.post-footer {
+/* .post-footer {
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -435,9 +435,78 @@ input:hover {
   border-radius: 20px;        
   transition: 0.2s ease;      
   width: 87px;
-  /* height: 87px; */
+} */
+
+
+
+/* ___ End footer ___ */
+
+
+/* === Start Footer === */
+  
+.footer-nav {
+  display: flex;
+  width: 350px;
+  height: 80px;
+  justify-content: space-around;
+  /* background: #f79256; */
+  /* background: #1fbd1a2; */
+  /* background-color: #fbd1a2; */
+  background-color: #f79256;
+  padding: 0 0;
+  border-radius: 20px;
+  /* border-radius: ; */
 }
 
+.footer-nav-button {
+  background: none;
+  border: none;
+  font-size: 10px;
+  color: #1d4e89;
+  cursor: pointer;
+  font-family: monospace;
+  width: 87px;
+}
 
+.footer-nav-button-active {
+  background: none;
+  border: none;
+  font-size: 9px;
+  color: #1d4e89;
+  cursor: pointer;
+  font-family: monospace;
+  width: 87px;
+
+  border: solid 2px #1d4e89;
+  border-radius: 20px;
+}
+
+.currentPage {
+  border: solid #1d4e89;
+  border-radius: 20px;
+}
+
+.footer-nav button p {
+  background-color: #1d4e89;
+  color: white;
+  width: 80px;
+  height: 12px;
+  border-radius: 20px;
+}
+
+.footer-nav .active {
+  font-weight: bold;
+  font-family: monospace;
+  color: #1d4e89;
+}
+
+.footer-nav button:hover {
+  background-color: #ffd6a0;   
+  color: #000;                 
+  border-radius: 20px;        
+  transition: 0.2s ease;      
+  width: 87px;
+  /* height: 87px; */
+}
 
 /* ___ End footer ___ */

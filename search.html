@@ -13,7 +13,7 @@
 
     <div class="header-container">
       <div class="header">
-        <button>
+        <button id = "backButton">
           <img src="icons/back.png" alt = "Back icon" class="header-icon">
         </button>
 
@@ -102,94 +102,46 @@
 
     <div class="footer-container">
       <div class="footer-nav">
-        <button>
-          <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
-          Social Media
+        <button class = "footer-nav-button" id = "socialMediaNavigation">
+          <img src="/icons/socialmedia.png" alt="Social media icon" class="icon"><br>
+           Social Media
         </button>
-		<button>
-          <img src="icons/message.png" alt = "Message icon" class="icon"><br>
+        <button class = "footer-nav-button">
+          <img src="/icons/message.png" alt = "Message icon" class="icon"><br>
           Message
         </button>
-        <button>
-          <img src="icons/search.png" alt="Search icon" class="icon"><br>
+        <button class = "footer-nav-button-active">
+          <img src="/icons/search.png" alt="Search icon" class="icon"><br>
           Search
         </button>
-        <button>
-          <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
+        <button class = "footer-nav-button" id = "profileNavigation">
+          <img src="/icons/profile.png" alt="Profile icon" class="icon"><br>
           Profile
         </button>
       </div>
 
     </div>
-    <!-- Header -->
-    <!-- <div class="header">
-      <button class="back-btn">←</button>
-      <h1>CATCH UP</h1>
-      <button class="menu-btn">☰</button>
-    </div> -->
-
-    <!-- Date Range -->
-    <!-- <div class="date-range">
-      <p>Your missed posts</p>
-      <div class="range">
-        <span>FROM</span>
-        <button class="date-btn">WED 03/26/25</button>
-        <span>TO</span>
-        <button class="date-btn">WED 04/02/25</button>
-        <span class="edit-icon">✎</span>
-      </div>
-    </div> -->
-
-    <!-- Post -->
-    <!-- <div class="post-card">
-      <div class="post-header">
-        <img class="avatar" src="avatar.png" alt="avatar">
-        <span class="username">@veratar</span>
-        <img class="platform" src="facebook-icon.png" alt="Facebook">
-      </div>
-
-      <div class="post-image">
-        <button class="nav-btn">❮</button>
-        <img src="baby.png" alt="baby" />
-        <button class="nav-btn">❯</button>
-      </div>
-
-      <div class="post-footer">
-        <div class="icons">
-          <span>💙</span>
-          <span>💬</span>
-        </div>
-        <div class="timestamp">
-          <p>March 26th, 2025</p>
-          <p>17:18:42</p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Footer Menu -->
-    <!-- <div class="footer-nav">
-      <button>
-        <img src="icons/message.png" alt = "Message icon" class="icon"><br>
-        Message
-      </button>
-      <button>
-        <img src="icons/socialmedia.png" alt="Social media icon" class="icon"><br>
-        Social Media
-      </button>
-      <button>
-        <img src="icons/search.png" alt="Search icon" class="icon"><br>
-        Search
-      </button>
-      <button>
-        <img src="icons/profile.png" alt="Profile icon" class="icon"><br>
-        Profile
-      </button>
-    </div> -->
 
   </div>
   <script> 
   const post_search = false; 
   </script>
   <script src = "search.js"></script>
+  <script src="script.js"></script>
+  <script>
+	document.getElementById("profileNavigation").addEventListener("click", () => {
+	  window.location.href = "/html/profiles/profile_Self.html";
+	});
+
+	document.getElementById("socialMediaNavigation").addEventListener("click", () => {
+        window.location.href = "/html/social_media/wrapped_Baby.html";
+        
+        const fromDate = document.getElementById("dateInputFrom").value;
+        const toDate = document.getElementById("dateInputTo").value;
+
+        localStorage.setItem("fromDate", fromDate);
+        localStorage.setItem("toDate", toDate);
+    });
+  </script>
 </body>
 </html>

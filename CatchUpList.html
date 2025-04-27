@@ -150,108 +150,104 @@
   </script>
 
   <script>
-  ;(function() {
-    const STORAGE_KEY = 'catchUpAccounts';
-
-    const defaultAccounts = [
-    { username: '@jacksonabat',icon: 'facebook',page: 'html/social_media/wrapped_Beach.html'},
-    { username: '@commonkat',icon: 'tiktok',page: 'html/social_media/wrapped_Cat.html'},
-    { username: '@Psikoe',icon: 'instagram',page: 'html/social_media/wrapped_Squirrel.html'},
-    { username: '@veratar',icon: 'facebook',page: 'html/social_media/wrapped_Baby.html'},
-    ];
-
-    let accounts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-
-    const listRoot  = document.getElementById('catchUpList');
-    const clearBtn  = document.getElementById('clearAllBtn');
-    const addBtn    = document.getElementById('gotoAdd');
-
-    function renderList() {
-    listRoot.innerHTML = '';
-
-    defaultAccounts.forEach(acc => {
-        const item = document.createElement('div');
-        item.className = 'catch-up-item';
-
-        // click → your custom page
-        item.addEventListener('click', () => {
-        window.location.href = acc.page;
-        });
-
-        const avatar = document.createElement('img');
-        avatar.src       = 'icons/male_black.png';
-        avatar.className = 'avatar';
-        item.appendChild(avatar);
-
+    ;(function() {
+      const STORAGE_KEY = 'catchUpAccounts';
+      const defaultAccounts = [
+        { username: '@jacksonabat', platform: 'Facebook',   icon: 'facebook',  page: 'html/social_media/wrapped_Beach.html' },
+        { username: '@commonkat',  platform: 'TikTok',     icon: 'tiktok',    page: 'html/social_media/wrapped_Cat.html'   },
+        { username: '@Psikoe',     platform: 'Instagram', icon: 'instagram', page: 'html/social_media/wrapped_Squirrel.html' },
+        { username: '@veratar',    platform: 'Facebook',   icon: 'facebook',  page: 'html/social_media/wrapped_Baby.html'  },
+      ];
+    
+      let accounts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const listRoot = document.getElementById('catchUpList');
+      const addBtn   = document.getElementById('gotoAdd');
+    
+      function makeSearchRow(acc, removable, idx) {
+        const row = document.createElement('div');
+        row.className = 'search-row';
+    
+        const btn = document.createElement('button');
+        btn.className = 'search-button';
+        btn.addEventListener('click', () => window.location.href = acc.page);
+    
+        const wrapper = document.createElement('div');
+    
+        const pfp = document.createElement('img');
+        pfp.className = 'search-pfp';
+        pfp.src       = 'icons/male_black.png';
+        wrapper.appendChild(pfp);
+    
+        const vtext = document.createElement('div');
+        vtext.id = 'vertical-text-1';
+    
         const name = document.createElement('span');
+        name.className = 'search-name';
         name.textContent = acc.username;
-        name.className = 'username';
-        item.appendChild(name);
-
-        const icon = document.createElement('img');
-        icon.src       = `icons/${acc.icon}.png`;
-        icon.className = 'platform-icon';
-        item.appendChild(icon);
-
-        listRoot.appendChild(item);
-    });
-
-    accounts.forEach((acc, idx) => {
-        const item = document.createElement('div');
-        item.className = 'catch-up-item';
-
-        const avatar = document.createElement('img');
-        avatar.src       = 'icons/male_black.png';
-        avatar.className = 'avatar';
-        item.appendChild(avatar);
-
-        const name = document.createElement('span');
-        name.textContent = acc.username;
-        name.className = 'username';
-        item.appendChild(name);
-
-        const icon = document.createElement('img');
-        icon.src       = `icons/${acc.platform}.png`;
-        icon.className = 'platform-icon';
-        item.appendChild(icon);
-
-        // delete-single button
-        const delBtn = document.createElement('button');
-        delBtn.type        = 'button';
-        delBtn.className   = 'delete-btn';
-        delBtn.innerHTML   = '×';
-        delBtn.title       = 'Remove this account';
-        delBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        accounts.splice(idx, 1);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
-        renderList();
+        vtext.appendChild(name);
+    
+        const plat = document.createElement('span');
+        plat.className = 'mono';
+        plat.textContent = acc.platform;
+        vtext.appendChild(plat);
+    
+        wrapper.appendChild(vtext);
+        btn.appendChild(wrapper);
+        row.appendChild(btn);
+    
+        if (removable) {
+          const del = document.createElement('button');
+          del.className = 'x-button';
+          del.title     = 'Remove this account';
+          del.addEventListener('click', e => {
+            e.stopPropagation();
+            const defIdx = defaultAccounts.findIndex(a =>
+              a.username === acc.username && a.page === acc.page
+            );
+            if (defIdx !== -1) {
+              defaultAccounts.splice(defIdx, 1);
+            } else {
+              accounts.splice(idx, 1);
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
+            }
+            renderList();
+          });
+          const xi = document.createElement('img');
+          xi.className = 'x-button-image';
+          xi.src       = 'icons/x.png';
+          del.appendChild(xi);
+          row.appendChild(del);
+        }
+    
+        return row;
+      }
+    
+      function renderList() {
+        listRoot.innerHTML = '';
+        defaultAccounts.forEach((acc, idx) => {
+          listRoot.appendChild(makeSearchRow(acc, true, idx));
         });
-
-        item.appendChild(delBtn);
-        listRoot.appendChild(item);
-    });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-    renderList();
-    addBtn.addEventListener('click', () => {
-        window.location.href = 'addAccounts.html';
-    });
-    clearBtn.addEventListener('click', () => {
-        accounts = [];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(accounts));
+        accounts.forEach((acc, idx) => {
+          acc.platform = acc.platform ||
+            (acc.icon[0].toUpperCase() + acc.icon.slice(1));
+          listRoot.appendChild(makeSearchRow(acc, true, idx));
+        });
+      }
+    
+      document.addEventListener('DOMContentLoaded', () => {
         renderList();
-    });
-    });
-
-    window.addEventListener('storage', e => {
-    if (e.key === STORAGE_KEY) {
-        accounts = JSON.parse(e.newValue || '[]');
-        renderList();
-    }
-    });
-  })();
-</script>
+        addBtn.addEventListener('click', () =>
+          window.location.href = 'addAccounts.html'
+        );
+      });
+    
+      window.addEventListener('storage', e => {
+        if (e.key === STORAGE_KEY) {
+          accounts = JSON.parse(e.newValue || '[]');
+          renderList();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

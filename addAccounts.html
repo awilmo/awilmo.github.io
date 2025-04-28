@@ -192,7 +192,16 @@
         addBtn.addEventListener('click', () => {
           const username = usernameIn.value.trim();
           const platform = platformIn.value;
-          if (!username || !platform) return;
+          
+          if (!username) {
+            showError('Please enter a username!');
+            return;
+          }
+
+          if (!platform) {
+            showError('Please select a platform!');
+            return;
+          }
 
           const accounts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 

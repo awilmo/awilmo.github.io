@@ -48,25 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("selectedDateTo").textContent = formatDate(toDate);
   }
 
-  // function formatDate(value) {
-  //   const date = new Date(value);
-  //   return date.toLocaleDateString(undefined, {
-  //     year: "numeric",
-  //     month: "short",
-  //     day: "numeric",
-  //   });
-  // }
-
-  // function formatDateFixed(value) {
-  //   const date = new Date(value);
-  //   date.setMinutes(date.getMinutes() + date.getTimezoneOffset()); // fix UTC shift
-  //   return date.toLocaleDateString(undefined, {
-  //     year: "numeric",
-  //     month: "short",
-  //     day: "numeric",
-  //   });
-  // }
-
   function formatDate(value) {
     const [year, month, day] = value.split("-").map(Number);
     const date = new Date(year, month - 1, day); // month is 0-based
@@ -198,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (signOutBtn) {
     signOutBtn.addEventListener('click', () => {
       if (confirm('Are you sure you want to sign out?')) {
-        window.location.href = 'wrapped_Baby.html';
+        window.location.href = '/html/social_media/wrapped_Baby.html';
       }
     });
   }
@@ -208,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteBtn.addEventListener('click', () => {
       if (confirm('This will permanently delete your account. Proceed?')) {
         alert('Your account has been deleted.');
-        window.location.href = 'wrapped_Baby.html';
+        window.location.href = '/html/social_media/wrapped_Baby.html';
       }
     });
   }

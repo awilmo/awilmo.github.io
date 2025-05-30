@@ -28,4 +28,4 @@ CatchUp App (Wrapped Baby) is a cross-platform web application designed to help 
 
 
 
-## Authors: Aaron Willming, Ian Thibault, Bill Munkh-Erdene, Trong Gia Hung Nguyen, Uyen Duong 
+### Authors: Aaron Willming, Ian Thibault, Bill Munkh-Erdene, Trong Gia Hung Nguyen, Uyen Duong 

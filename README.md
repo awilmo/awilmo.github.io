@@ -21,7 +21,7 @@ CatchUp App (Wrapped Baby) is a cross-platform web application designed to help 
 ## 📦 How to Run Locally
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/catchup-app.git](https://github.com/awilmo/awilmo.github.io.git)
+   git clone https://github.com/awilmo/awilmo.github.io.git
    cd catchup-app
 2. Open index.html in a web browser.
 
